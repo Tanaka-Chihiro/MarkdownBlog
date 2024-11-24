@@ -15,7 +15,7 @@ const getPostData = async(): Promise<PostItem[]> => {
       const {data, content} = matter(fileContents);
 
       const htmlContent = marked(content);
-      // @ts-expect-error
+      // @ts-expect-error-aaa
       const plainTextContent = htmlContent.replace(/<[^>]*>/g, '').slice(0, 100);
 
       return{
