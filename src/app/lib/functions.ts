@@ -15,7 +15,7 @@ const getPostData = async(): Promise<PostItem[]> => {
       const {data, content} = matter(fileContents);
 
       const htmlContent = marked(content);
-      // @ts-expect-error-aaa
+      // @ts-expect-error :because the library definition is wrong
       const plainTextContent = htmlContent.replace(/<[^>]*>/g, '').slice(0, 100);
 
       return{
