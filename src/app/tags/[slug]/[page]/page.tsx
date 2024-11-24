@@ -18,7 +18,8 @@ type Props = {
 export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
-  const tag = decodeURIComponent(params.slug);
+  const {slug} = await params;
+  const tag = decodeURIComponent(slug);
   const title = `${tag} - ${params.page}ページ目 | Nemutai`;
   return {
     title: title,
@@ -66,7 +67,8 @@ export default async function TagPage({
 }: {
   params: { slug: string; page: number };
 }) {
-  const posts = await getTagsData(params.slug);
+  const {slug} = await params;
+  const posts = await getTagsData(slug);
 
   const pageData: PageData = createPageData(params.page, posts.length);
 
@@ -81,7 +83,7 @@ export default async function TagPage({
         </div>
         <div className="mb-3">
           <Pagination
-            type={`tags/${params.slug}`}
+            type={`tags/${slug}`}
             pages={pageData.pages}
             currentPage={pageData.currentPage}
           />

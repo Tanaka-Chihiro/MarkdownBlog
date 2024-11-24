@@ -23,7 +23,8 @@ type Props = {
 export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
-  const post = await createPostData(params.slug);
+  const {slug} = await params;
+  const post = await createPostData(slug);
   return {
     title: `${post.title} | ブログタイトル`,
     description: `${post.description ?? post.title}`,
@@ -71,7 +72,8 @@ async function createPostData(slug: string): Promise<PostItem> {
 }
 
 export default async function Post({ params }: Props) {
-  const postData = await createPostData(params.slug);
+  const {slug} = await params;
+  const postData = await createPostData(slug);
 
   return (
     <>
