@@ -1,6 +1,6 @@
 import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { POSTS_PER_PAGE } from "@/app/lib/contents";
 import { PageData, createPageData, getPostData } from "../../lib/functions";
 import Header from "../../components/Header";
@@ -12,7 +12,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const title = `${params.page}ページ目`;
   return {

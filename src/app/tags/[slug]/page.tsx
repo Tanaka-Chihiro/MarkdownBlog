@@ -1,6 +1,6 @@
 import PostCard from "../../components/PostCard";
 import { PostItem } from "../../lib/types";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import {
   PageData,
   createPageData,
@@ -17,7 +17,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const tag = decodeURIComponent(params.slug);
   return {

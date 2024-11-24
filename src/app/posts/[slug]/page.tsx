@@ -11,7 +11,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeStringify from "rehype-stringify";
 import rehypeExternalLinks from "rehype-external-links";
 import { PostItem } from "../../lib/types";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { getPostData } from "../../lib/functions";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -22,7 +22,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const post = await createPostData(params.slug);
   return {
@@ -32,8 +31,6 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), "posts");
-  const filenames = fs.readdirSync(postsDirectory);
   const posts = await getPostData();
   return posts.map((post: PostItem) => {
     return {
