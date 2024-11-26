@@ -40,7 +40,6 @@ export default async function Page({ params }: { params: Promise<{ page: number 
   const {page} = await params;
 
   const pageData: PageData = await createPageData(page, posts.length);
-  
   return (
     <div className="container">
       <Header />

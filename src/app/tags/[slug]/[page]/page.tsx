@@ -62,11 +62,12 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function TagPage({
-  params,
-}: {
-  params: { slug: string; page: number };
-}) {
+export default async function TagPage(
+  props: {
+    params: Promise<{ slug: string; page: number }>;
+  }
+) {
+  const params = await props.params;
   const {slug} = await params;
   const posts = await getTagsData(slug);
 
