@@ -20,7 +20,7 @@ const PostCard = ({ post }: { post: PostItem }) => {
           </picture>
         </div>
       )}
-      <div className="px-2 py-3 mt-10">
+      <div className="px-10 py-3 mt-10">
         <Link href={`/posts/${post.slug}`}>
           <h1 className="font-bold text-lg hover:text-blue-300">{post.title}</h1>
         </Link>
