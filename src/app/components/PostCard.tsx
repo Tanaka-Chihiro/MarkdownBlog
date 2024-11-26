@@ -4,7 +4,7 @@ import { PostItem } from "@/app/lib/types";
 const PostCard = ({ post }: { post: PostItem }) => {
   return (
     <div
-      className="flex mx-20"
+      className="flex mx-20 my-10"
     >
       {post.image && (
         <div className="scale-95 hover:scale-100 ease-in duration-100">
