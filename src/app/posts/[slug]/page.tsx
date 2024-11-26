@@ -17,7 +17,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata(

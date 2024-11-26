@@ -12,7 +12,7 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata(

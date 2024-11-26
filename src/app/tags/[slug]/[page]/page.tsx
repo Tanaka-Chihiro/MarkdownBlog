@@ -12,7 +12,7 @@ import Header from "../../../components/Header";
 import Footer from "@/app/components/Footer";
 
 type Props = {
-  params: { slug: string; page: number };
+  params: Promise<{ slug: string; page: number }>;
 };
 
 export async function generateMetadata(
@@ -20,7 +20,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const {slug} = await params;
   const tag = decodeURIComponent(slug);
-  const title = `${tag} - ${params.page}ページ目 | Nemutai`;
+  const title = `${tag} - ${(await params).page}ページ目 | Nemutai`;
   return {
     title: title,
     description: `${tag}`,

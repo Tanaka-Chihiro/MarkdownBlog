@@ -7,13 +7,13 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 type Props = {
-  params: { page: number };
+  params: Promise<{ page: number }>;
 };
 
 export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
-  const title = `${params.page}ページ目`;
+  const title = `${(await params).page}ページ目`;
   return {
     title: `${title} | ブログタイトル`,
     description: `${title}`,
