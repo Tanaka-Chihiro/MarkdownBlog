@@ -51,7 +51,7 @@ export async function generateStaticParams() {
 export default async function TagPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const {slug} = await params;
   const posts = await getTagsData(slug);

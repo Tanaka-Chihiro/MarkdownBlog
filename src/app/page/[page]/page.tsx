@@ -35,11 +35,12 @@ export async function generateStaticParams() {
   return pages;
 }
 
-export default async function Page({ params }: { params: { page: number } }) {
+export default async function Page({ params }: { params: Promise<{ page: number }> }) {
   const posts = await getPostData();
+  const {page} = await params;
 
-  const pageData: PageData = createPageData(params.page, posts.length);
-
+  const pageData: PageData = await createPageData(page, posts.length);
+  
   return (
     <div className="container">
       <Header />
