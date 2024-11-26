@@ -43,7 +43,7 @@ export async function generateStaticParams() {
     }
   });
 
-  let params: { path: string; slug: string; page: string }[] = [];
+  const params: { path: string; slug: string; page: string }[] = [];
 
   for (const key in tagMaps) {
     if (tagMaps.hasOwnProperty(key)) {
