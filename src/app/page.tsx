@@ -10,7 +10,7 @@ export default async function Home() {
   const pageData: PageData = createPageData(1, posts.length);
 
   return (
-    <>
+    <div className="container">
       <Header />
       <div className="row">
         {posts.slice(pageData.start, pageData.end).map((post) => (
@@ -25,6 +25,6 @@ export default async function Home() {
         />
       </div>
       <Footer />
-    </>
-  );
+    </div>
+  )
 }
